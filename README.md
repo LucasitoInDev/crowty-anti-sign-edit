@@ -90,4 +90,4 @@ config:
 
 ## Download
 
-You can [download](https://github.com/LucasInDev/crowty-anti-sign-edit/releases/tag/1.0-SNAPSHOT) the last updated version
+You can [download]([https://github.com/LucasitoInDev/crowty-anti-sign-edit/releases/tag/1.0-SNAPSHOT](https://github.com/LucasitoInDev/crowty-anti-sign-edit/releases/tag/1.0-SNAPSHOT)) the last updated version
