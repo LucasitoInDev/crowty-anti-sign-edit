@@ -29,7 +29,7 @@ config:
   sound:
     enabled: true #Enable or disable sound play on deny sign edit
     sound-type: BLOCK_CANDLE_EXTINGUISH #https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Sound.html
-    #If you want change this sound, check Spigot-API
+  #If you want change this sound, check Spigot-API
 
   #Special effect section
   effects:
@@ -37,13 +37,13 @@ config:
     #This feature allow to send effect to player have been denied edit of a sign
     effect-type: BLINDNESS #https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
     effect-duration: 40 #Value in Ticks, so value of: '20' is 1 second
-    #If you want change this effect, check Spigot-API
+  #If you want change this effect, check Spigot-API
 
 
   #Language section
   prefix: '&6&lCrowtyCraftNT'
   nopermission: '&c&lHey! &7You dont have permission to edit this sign...'
 
-  #All about color codes (External website):  https://minecraftitemids.com/color-codes
+#All about color codes (External website):  https://minecraftitemids.com/color-codes
 
-  #For message, it's better '§' to use color codes, it's a good practice of optimization, example: §6§lCrowtyCraftNT
+#For message, it's better '§' to use color codes, it's a good practice of optimization, example: §6§lCrowtyCraftNT

@@ -39,14 +39,14 @@ public class SignInteract implements Listener {
             e.setCancelled(true);
             Messager.notifyNoPermission(e.getPlayer());
 
-            if (config.getBoolean("config.effects.enabled")) {
-                String effectType = config.getString("config.effects.effect-type");
+            if (DisableSign.pl.getConfiguration().getConfig().getBoolean("config.effects.enabled")) {
+                String effectType = DisableSign.pl.getConfiguration().getEffectType();
                 int effectDuration = config.getInt("config.effects.effect-duration");
                 applyEffect(e.getPlayer(), effectType, effectDuration);
             }
 
             if (config.getBoolean("config.sound.enabled")) {
-                String soundType = config.getString("config.sound.sound-type");
+                String soundType = DisableSign.pl.getConfiguration().getSoundType();
                 playSound(e.getPlayer(), soundType);
             }
 

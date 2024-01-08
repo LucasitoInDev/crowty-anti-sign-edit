@@ -1,8 +1,10 @@
-name: Disable Sign Edit
-version: '${project.version}'
+name: crowty-anti-sign-edit
+version: 1.0-SNAPSHOT
 main: es.crowty.addon.DisableSign
 api-version: 1.20
-prefix: crowty-edit-sign
-authors: [ MauriceBtK, CrowtyCraftNT ]
-description: Original idea from MauriceBtK
-website: https://www.spigotmc.org/resources/disable-edit-signs-1-0.110653/
+prefix: crowty-anti-sign-edit
+authors: [ CrowtyCraftNT ]
+website: https://www.crowtycraft.es
+commands:
+  cweditsign:
+    usage: /<command>

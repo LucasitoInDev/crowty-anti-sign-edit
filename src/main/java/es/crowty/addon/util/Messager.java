@@ -12,7 +12,7 @@ public class Messager {
     }
 
     public static void notifyTo(Player p, String s) {
-        p.sendMessage(DisableSign.pl.getConfiguration().getConfig().getString("config.prefix") + s);
+        p.sendMessage(Color.translate(DisableSign.pl.getConfiguration().getPrefix()) + s);
     }
 
     public static void warn(final String s) {
@@ -20,7 +20,7 @@ public class Messager {
     }
 
     public static void notifyNoPermission(CommandSender sender) {
-        sender.sendMessage(Color.translate(DisableSign.pl.getConfiguration().getConfig().getString("config.nopermission")));
+        sender.sendMessage(Color.translate(DisableSign.pl.getConfiguration().getNoPermissionMessage()));
     }
 
 }

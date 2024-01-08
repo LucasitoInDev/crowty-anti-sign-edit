@@ -1,35 +1,44 @@
 package es.crowty.addon.config;
 
+import es.crowty.addon.util.Color;
 import es.crowty.addon.util.Messager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.List;
+import java.util.Objects;
 
 public final class Configuration {
     private final File file;
-    private final FileConfiguration config;
+    private FileConfiguration config;
 
-    public Configuration(String file) {
+    public Configuration(String fileName) {
         File folder = new File("plugins/crowty-anti-sign-edit");
-        this.file = new File("plugins/crowty-anti-sign-edit/", file);
+        this.file = new File(folder, fileName);
 
-        if (!this.file.exists()) {
+        if (!file.exists()) {
             Messager.log("§7Configuration file §c§lNOT FOUND§7, §7creating §bnew one§7...");
+
             try {
-                if (!folder.exists())
-                    folder.mkdir();
-                this.file.createNewFile();
+                if (!folder.exists()) {
+                    folder.mkdirs();
+                }
+
+                // Cargar desde los recursos
+                InputStream resourceStream = getClass().getClassLoader().getResourceAsStream(fileName);
+                Files.copy(Objects.requireNonNull(resourceStream), file.toPath());
+
+                Messager.log("§aConfiguration and logs loaded correctly§r§2!");
             } catch (IOException ex) {
                 Messager.log("§cERROR: §7The configuration §chas not been loaded§r§7: §4" + ex);
             }
-            this.config = YamlConfiguration.loadConfiguration(this.file);
-            Messager.log("§aConfiguration and logs loaded correctly§r§2!");
-        } else {
-            this.config = YamlConfiguration.loadConfiguration(this.file);
         }
+
+        this.config = YamlConfiguration.loadConfiguration(file);
     }
 
     public FileConfiguration getConfig() {
@@ -48,20 +57,8 @@ public final class Configuration {
         return getConfig().getString("config.permission");
     }
 
-    public boolean areEnabledWorldsEnabled() {
-        return getConfig().getBoolean("config.enabled-worlds.enabled");
-    }
-
-    public boolean isSoundEnabled() {
-        return getConfig().getBoolean("config.sound.enabled");
-    }
-
     public String getSoundType() {
         return getConfig().getString("config.sound.sound-type");
-    }
-
-    public boolean areEffectsEnabled() {
-        return getConfig().getBoolean("config.effects.enabled");
     }
 
     public String getEffectType() {
@@ -69,12 +66,21 @@ public final class Configuration {
     }
 
     public String getPrefix() {
-        return getConfig().getString("config.prefix");
+        return getConfig().getString(Color.translate("config.prefix"));
     }
 
     public String getNoPermissionMessage() {
-        return getConfig().getString("config.nopermission");
+        return getConfig().getString(Color.translate("config.nopermission"));
     }
+
+    public void reloadConfig() {
+        this.config = YamlConfiguration.loadConfiguration(file);
+
+        // Realiza otras tareas de recarga si es necesario
+
+        Messager.log("§aConfiguration reloaded successfully!");
+    }
+
 
     public void saveConfig() {
         try {
