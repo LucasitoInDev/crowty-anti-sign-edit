@@ -37,6 +37,7 @@ public class SignInteract implements Listener {
         if (!e.getPlayer().hasPermission(permission) || !enabledWorlds.contains(e.getPlayer().getWorld().getName())) {
 
             e.setCancelled(true);
+
             Messager.notifyNoPermission(e.getPlayer());
 
             if (DisableSign.pl.getConfiguration().getConfig().getBoolean("config.effects.enabled")) {

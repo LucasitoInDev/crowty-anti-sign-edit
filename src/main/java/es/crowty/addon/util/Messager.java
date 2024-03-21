@@ -20,6 +20,9 @@ public class Messager {
     }
 
     public static void notifyNoPermission(CommandSender sender) {
+        if (!DisableSign.pl.getConfiguration().isNoPermissionMessage()) {
+            return;
+        }
         sender.sendMessage(Color.translate(DisableSign.pl.getConfiguration().getNoPermissionMessage()));
     }
 

@@ -42,6 +42,7 @@ config:
 
   #Language section
   prefix: '&6&lCrowtyCraftNT'
+  notify-nopermission: true #If set to 'false' nothing will be sent to the user
   nopermission: '&c&lHey! &7You dont have permission to edit this sign...'
 
 #All about color codes (External website):  https://minecraftitemids.com/color-codes

@@ -73,6 +73,10 @@ public final class Configuration {
         return getConfig().getString(Color.translate("config.nopermission"));
     }
 
+    public boolean isNoPermissionMessage() {
+        return getConfig().getBoolean(Color.translate("config.notify-nopermission"));
+    }
+
     public void reloadConfig() {
         this.config = YamlConfiguration.loadConfiguration(file);
 
